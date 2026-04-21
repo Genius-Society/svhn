@@ -1,6 +1,6 @@
 # SVHN Recognition
-[![license](https://img.shields.io/github/license/Genius-Society/svhn_recognition.svg)](./LICENSE)
-[![Python application](https://github.com/Genius-Society/svhn_recognition/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/Genius-Society/svhn_recognition/actions/workflows/python-app.yml)
+[![license](https://img.shields.io/github/license/Genius-Society/svhn.svg)](./LICENSE)
+[![Python application](https://github.com/Genius-Society/svhn/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/Genius-Society/svhn/actions/workflows/python-app.yml)
 [![hf](https://img.shields.io/badge/huggingface-SVHN-ffd21e.svg)](https://huggingface.co/collections/Genius-Society/svhn-67bc30924b9d3615a6df0b3b)
 [![ms](https://img.shields.io/badge/modelscope-SVHN-624aff.svg)](https://www.modelscope.cn/collections/SVHN-68df87fc64904a)
 
@@ -21,8 +21,8 @@ pip install -r requirements.txt
 ## Usage
 1. Clone the source code:
 ```bash
-git clone git@github.com:Genius-Society/svhn_recognition.git
-cd svhn_recognition
+git clone git@github.com:Genius-Society/svhn.git
+cd svhn
 ```
 2. Run `python train.py`
 
