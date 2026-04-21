@@ -28,7 +28,7 @@ jobs:
         run: |
           git clone https://oauth2:$MS_TOKEN@www.modelscope.cn/studios/Genius-Society/svhn.git ../ms_repo
           mv -f ./.github/restart.py ../
-          rm -rf ./LICENSE ./README.md ./.github ./.git ./requirements.txt
+          rm -rf ./LICENSE ./README.md ./.github ./.git ./requirements.txt ./.gitattributes ./.gitignore
           cp -rf ../ms_repo/.git ./
           if [ -n "$(git status --porcelain)" ]; then
             echo "Files are different, committing changes..."
