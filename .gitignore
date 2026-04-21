@@ -1,9 +1,3 @@
-.idea
-.ipynb_checkpoints
-*.pyc
-data/*
-logs/*
-rename.sh
-*.zip
-test.*
-*__pycache__*
+__pycache__/*
+*.pth
+flagged/*

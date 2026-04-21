@@ -31,6 +31,7 @@ class Model(torch.jit.ScriptModule):
 
     def __init__(self):
         super(Model, self).__init__()
+
         self._hidden1 = nn.Sequential(
             nn.Conv2d(in_channels=3, out_channels=48, kernel_size=5, padding=2),
             nn.BatchNorm2d(num_features=48),
@@ -89,6 +90,7 @@ class Model(torch.jit.ScriptModule):
         )
         self._hidden9 = nn.Sequential(nn.Linear(192 * 7 * 7, 3072), nn.ReLU())
         self._hidden10 = nn.Sequential(nn.Linear(3072, 3072), nn.ReLU())
+
         self._digit_length = nn.Sequential(nn.Linear(3072, 7))
         self._digit1 = nn.Sequential(nn.Linear(3072, 11))
         self._digit2 = nn.Sequential(nn.Linear(3072, 11))
@@ -149,6 +151,11 @@ class Model(torch.jit.ScriptModule):
         return path_to_checkpoint_file
 
     def restore(self, path_to_checkpoint_file):
-        self.load_state_dict(torch.load(path_to_checkpoint_file))
-        step = int(path_to_checkpoint_file.split("\\")[-1][6:-4])
+        self.load_state_dict(
+            torch.load(
+                path_to_checkpoint_file,
+                map_location=torch.device("cpu"),
+            )
+        )
+        step = int(path_to_checkpoint_file.split("model-")[-1][:-4])
         return step
