@@ -128,4 +128,4 @@ if __name__ == "__main__":
         title=_L("门牌号识别"),
         flagging_mode="never",
         cache_examples=False,
-    ).launch(css="#gradio-share-link-button-0 { display: none; }")
+    ).launch(css="#gradio-share-link-button-0 { display: none; }", ssr_mode=False)
