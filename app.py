@@ -129,7 +129,7 @@ if __name__ == "__main__":
         flagging_mode="never",
         cache_examples=False,
     ).launch(
-        theme=gr.themes.Citrus(),
+        theme=gr.themes.Monochrome(),
         css="#gradio-share-link-button-0 { display: none; }",
         ssr_mode=False,
     )
