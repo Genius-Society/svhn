@@ -24,6 +24,7 @@ else:
         "Genius-Society/svhn",
         cache_dir="./__pycache__",
     )
+
 ZH2EN = {
     "上传图片": "Upload an image",
     "状态栏": "Status",
@@ -31,10 +32,6 @@ ZH2EN = {
     "识别结果": "Recognition result",
     "门牌号识别": "Door Number Recognition",
 }
-
-
-def _L(zh_txt: str):
-    return ZH2EN[zh_txt] if EN_US else zh_txt
 
 
 def infer(input_img: str, checkpoint_file: str):
@@ -110,26 +107,30 @@ if __name__ == "__main__":
             ]
         )
 
+    i18n = gr.I18n(
+        zh={key: key for key in ZH2EN},
+        en=ZH2EN,
+    )
     gr.Interface(
         fn=infer,
         inputs=[
-            gr.Image(label=_L("上传图片"), type="filepath"),
+            gr.Image(label=i18n("上传图片"), type="filepath"),
             gr.Dropdown(
-                label=_L("选择模型"),
+                label=i18n("选择模型"),
                 choices=models,
                 value=models[0],
             ),
         ],
         outputs=[
-            gr.Textbox(label=_L("状态栏"), buttons=["copy"]),
-            gr.Textbox(label=_L("识别结果"), buttons=["copy"]),
+            gr.Textbox(label=i18n("状态栏"), buttons=["copy"]),
+            gr.Textbox(label=i18n("识别结果"), buttons=["copy"]),
         ],
         examples=samples,
-        title=_L("门牌号识别"),
+        title=i18n("门牌号识别"),
         flagging_mode="never",
         cache_examples=False,
     ).launch(
         theme=gr.themes.Monochrome(),
-        css="#gradio-share-link-button-0 { display: none; }",
+        css="#gradio-share-link-button-0, thead { display: none; }",
         ssr_mode=False,
     )
